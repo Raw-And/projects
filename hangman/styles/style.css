@@ -1,0 +1,125 @@
+*,
+*::before,
+*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #34495e;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+h1{
+  margin: 20px 0;
+}
+
+.figure-container{
+  stroke: #fff;
+  stroke-width: 4px;
+  fill: transparent;
+  stroke-linecap: round;
+}
+
+.figure-part{
+  display: none;
+}
+
+.game-container{
+  padding: 20px 30px;
+  position: relative;
+  margin: auto;
+  height: 350px;
+  width: 450px;
+}
+
+.wrong-letters-container{
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  text-align: right;
+}
+
+.wrong-letters-container p{
+  margin: 0 0 10px;
+}
+
+.wrong-letters-container span{
+  font-size: 24px;
+}
+
+.word{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.letters{
+  display: inline-flex;
+  margin: 0 3px;
+  border-bottom: 3px solid #2980b9;
+  font-size: 30px;
+  text-align: start;
+  width: 30px;
+  height: 40px;
+  justify-content: center;
+}
+
+.popup-container{
+  background-color: rgba(0, 0, 0, .6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.popup{
+  background-color: #2980b9;
+  padding: 30px;
+  border-radius: 15px;
+  border-top-left-radius: 50px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, .3);
+}
+.popup button{
+  margin: 20px auto 0;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #2980b9;
+  background-color: #fff;
+  font-size: 16px;
+  border: none;
+}
+.popup button:focus{
+  outline: 0;
+}
+.popup button:active{
+  transform: scale(.98);
+}
+.notification-container{
+  background-color: rgba(0, 0, 0, .6);
+  border-radius: 10px 10px 0 0;
+  padding: 15px 20px;
+  position: absolute;
+  bottom: -50px;
+  transition: transform .3 ease-in-out;
+}
+
+.notification-container.show{
+  transition: all .3s;
+  transform: translateY(-50px);
+}
