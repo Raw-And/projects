@@ -79,7 +79,7 @@ h1 {
   font-size: 16px;
   border-radius: 10px 5px 0 0;
   border: none;
-  transform: translateY(-100%);
+  transform: translateY(-5rem);
   display: none;
 }
 
@@ -129,20 +129,44 @@ h1 {
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px 10px 0 0;
   padding: 15px 20px;
-  transform: translateX(-130%);
   transition: transform 0.3 ease-in-out;
+  display: none;
 }
 
 .notification-container.show {
   position: absolute;
-  left: 50%;
-  bottom: 40%;
+  top: 50%;
+  right: 5%;
   transition: all 0.3s;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -5%);
+  display: flex;
 }
 
 @media only screen and (max-width: 1024px) {
   #input {
     display: block;
   }
+}
+
+@media only screen and (max-width: 1024px) {
+  body{
+    text-align: center;
+
+  }
+  .notification-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+    transition: transform 0.3 ease-in-out;
+    display: none;
+  }
+  
+  .notification-container.show {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    transition: all 0.3s;
+    transform: translate(-5%, -30%);
+    display: flex;
+  }  
 }
