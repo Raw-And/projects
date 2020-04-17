@@ -4,6 +4,7 @@ const playAgainBtn = document.getElementById("play-button");
 const popup = document.getElementById("popup-container");
 const notification = document.getElementById("notification-container");
 const finalMessage = document.getElementById("final-message");
+const input = document.getElementById("input");
 
 const figureParts = document.querySelectorAll(".figure-part");
 
@@ -15,6 +16,7 @@ const correctWords = [];
 const wrongLetters = [];
 
 function display() {
+  input.disabled = false;
   wordEl.innerHTML = `
     ${selectedWord
       .split("")
@@ -34,6 +36,8 @@ function display() {
   if (innerWord === selectedWord) {
     finalMessage.innerText = "Congragulation, You Won";
     popup.style.display = "flex";
+    input.disabled = true;
+    window.removeEventListener("keydown", keydownFunction);
   }
 }
 
@@ -65,9 +69,9 @@ window.addEventListener("keydown", keydownFunction);
 
 function updateWrongLetters() {
   wrongLettersEl.innerHTML = `
-      ${wrongLetters.length > 0 ? `<p> Wrong </p>` : ''}
+      ${wrongLetters.length > 0 ? `<p> Wrong </p>` : ""}
       ${wrongLetters.map((letter) => `<span> ${letter} </span>`)}
-    `;
+      `;
 
   // SHOW ALL PARTS OF MAN
   figureParts.forEach((part, index) => {
@@ -82,9 +86,10 @@ function updateWrongLetters() {
 
   // CHECK IF LOST
   if (wrongLetters.length === figureParts.length) {
+    input.disabled = true;
     finalMessage.innerText = "oh sorry, You Lost";
     popup.style.display = "flex";
-    window.removeEventListener('keydown' , keydownFunction);
+    window.removeEventListener("keydown", keydownFunction);
   }
 }
 
@@ -100,8 +105,9 @@ playAgainBtn.addEventListener("click", () => {
   wrongLetters.splice(0);
   correctWords.splice(0);
   selectedWord = words[Math.floor(Math.random() * words.length)];
-  window.addEventListener('keydown' , keydownFunction)
+  window.addEventListener("keydown", keydownFunction);
   updateWrongLetters();
+  input.value = ''
 
   popup.style.display = "none";
   display();
