@@ -8,7 +8,7 @@ const input = document.getElementById("input");
 
 const figureParts = document.querySelectorAll(".figure-part");
 
-const words = ["wizard", "programmer", "country"];
+const words = ['tamata', 'sew', 'koya' , 'tre' , 'slemani' , 'rawand', 'moz','fasolia' , 'mrishk'];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 
